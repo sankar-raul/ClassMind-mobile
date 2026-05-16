@@ -5,7 +5,7 @@ import { SymbolWeight } from "expo-symbols";
 import { ComponentProps } from "react";
 import { OpaqueColorValue, type StyleProp, type TextStyle } from "react-native";
 
-type IconSymbolName = ComponentProps<typeof MaterialIcons>["name"];
+export type IconSymbolName = ComponentProps<typeof MaterialIcons>["name"];
 
 /**
  * Add your SF Symbols to Material Icons mappings here.

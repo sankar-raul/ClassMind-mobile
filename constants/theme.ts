@@ -25,6 +25,8 @@ export const Colors = {
     negative: "#f3727f",
     warning: "#ffa42b",
     announcement: "#539df5",
+    greenBorder: "#1db954",
+    pink: "#fe2fd5",
   },
   dark: {
     text: "#ffffff",
@@ -45,6 +47,7 @@ export const Colors = {
     warning: "#ffa42b",
     announcement: "#539df5",
     greenBorder: "#1db954",
+    pink: "#c64bec",
   },
 };
 

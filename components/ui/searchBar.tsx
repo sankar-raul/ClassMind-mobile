@@ -33,15 +33,9 @@ export default function SearchBar() {
           foreground: true,
           borderless: true,
         }}
-        style={[
-          {
-            backgroundColor: surface,
-            borderRadius: "50%",
-          },
-          styles["camera"],
-        ]}
+        style={[styles.camera, { backgroundColor: tint }]}
       >
-        <IconSymbol color={icon} name="camera-alt" />
+        <IconSymbol color="#fff" name="camera-alt" />
       </Pressable>
     </View>
   );
@@ -49,19 +43,21 @@ export default function SearchBar() {
 
 const styles = StyleSheet.create({
   container: {
-    gridTemplateRows: "1fr max-content",
     flexDirection: "row",
-    flexWrap: "nowrap",
-    gap: 12,
-    // backgroundColor: "red",
     alignItems: "center",
-    maxWidth: "100%",
+    width: "100%",
+    gap: 12,
   },
-  "search-input": {},
+  "search-input": {
+    flex: 1,
+  },
   camera: {
     alignSelf: "center",
     flexShrink: 0,
-    padding: 8,
-    aspectRatio: "1/1",
+    width: 44,
+    height: 44,
+    borderRadius: 22,
+    alignItems: "center",
+    justifyContent: "center",
   },
 });

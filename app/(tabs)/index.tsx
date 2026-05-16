@@ -1,11 +1,18 @@
 import { StyleSheet, View } from "react-native";
 
+import ActionTiles from "@/components/home/ActionTiles";
 import { ThemedText } from "@/components/themed-text";
 import ThemedScrollView from "@/components/ThemedScrollView";
 import SearchBar from "@/components/ui/searchBar";
+import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function HomeScreen() {
+  const router = useRouter();
+  // const theme = useColorScheme() ?? "light";
+
+  // const { icon, textSecondary, text, tint, surface } = Colors[theme];
+
   return (
     <ThemedScrollView>
       <SafeAreaView
@@ -26,6 +33,7 @@ export default function HomeScreen() {
           </ThemedText>
         </View>
         <SearchBar />
+        <ActionTiles />
       </SafeAreaView>
     </ThemedScrollView>
   );
@@ -50,5 +58,22 @@ const styles = StyleSheet.create({
     bottom: 0,
     left: 0,
     position: "absolute",
+  },
+  ctaRow: {
+    marginTop: 12,
+    flexDirection: "row",
+    gap: 8,
+  },
+  cta: {
+    flexDirection: "row",
+    alignItems: "center",
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    borderRadius: 12,
+  },
+  captureCta: {},
+  ghostCta: {
+    backgroundColor: "transparent",
+    borderWidth: 0,
   },
 });

@@ -2,6 +2,7 @@ import TextInputProps from "@/@types/props/text-input.props";
 import { Colors } from "@/constants/theme";
 import { useCallback } from "react";
 import {
+  Pressable,
   StyleSheet,
   TextInput,
   TextInputChangeEvent,
@@ -37,7 +38,14 @@ export default function ThemedTextInput({
         containerStyle,
       ]}
     >
-      <IconSymbol name="search" color={icon} />
+      <IconSymbol
+        style={{
+          paddingVertical: 4,
+          paddingLeft: 6,
+        }}
+        name="search"
+        color={icon}
+      />
       <TextInput
         numberOfLines={1}
         multiline={false}
@@ -45,9 +53,26 @@ export default function ThemedTextInput({
         placeholderTextColor={textSecondary}
         style={[{ color: text }, Styles["inputBox"], style]}
         cursorColor={tint}
-        defaultValue={value}
+        value={value}
         onChange={handleTextInput}
       />
+      <Pressable
+        android_ripple={{
+          // color: "#fff1",
+          foreground: true,
+          borderless: true,
+        }}
+        style={{
+          justifyContent: "center",
+          alignItems: "center",
+          paddingHorizontal: 0,
+          marginRight: 16,
+          alignSelf: "stretch",
+          marginLeft: 4,
+        }}
+      >
+        <IconSymbol name="mic" color={icon} />
+      </Pressable>
     </View>
   );
 }
@@ -57,7 +82,8 @@ const Styles = StyleSheet.create({
     padding: 12,
     flexGrow: 1,
     flexShrink: 0,
-    marginRight: 12,
+    paddingVertical: 16,
+    // marginRight: 12,
     // backgroundColor: "#ddd",
   },
   container: {
@@ -65,10 +91,10 @@ const Styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "nowrap",
     alignItems: "center",
-    gap: 0,
     flexGrow: 1,
     borderRadius: 32,
-    paddingBlock: 4,
-    paddingInline: 12,
+    // paddingVertical: 4,
+    paddingLeft: 6,
+    // overflow: "hidden",
   },
 });
