@@ -13,6 +13,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        // tabBarInactiveTintColor: Colors[colorScheme ?? "light"].tabIconDefault,
         headerShown: false,
         tabBarButton: HapticTab,
       }}
@@ -39,6 +40,8 @@ export default function TabLayout() {
         name="library"
         options={{
           title: "Library",
+          // `color` is provided by the Tabs navigator (it uses
+          // tabBarActiveTintColor / tabBarInactiveTintColor from screenOptions)
           tabBarIcon: ({ color }) => (
             <IconSymbol size={28} name="library-books" color={color} />
           ),
