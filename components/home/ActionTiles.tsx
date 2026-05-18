@@ -1,4 +1,5 @@
 import { Colors } from "@/constants/theme";
+import { useRouter } from "expo-router";
 import { useMemo } from "react";
 import { StyleSheet, useColorScheme } from "react-native";
 import { ThemedView } from "../themed-view";
@@ -7,12 +8,17 @@ import ActionCard, { ActionCardProps } from "./ActionCard";
 export default function ActionTiles() {
   const theme = useColorScheme();
   const { announcement, warning, tint, pink } = Colors[theme || "light"];
+  const router = useRouter();
   const actions = useMemo<ActionCardProps[]>(
     () => [
       {
         label: "Record Lecture",
         iconName: "mic",
         color: tint,
+        onClick: () => {
+          console.log("ok");
+          router.push("/(action)/pre-recording");
+        },
       },
       {
         label: "Capture Notes",
@@ -30,7 +36,7 @@ export default function ActionTiles() {
         color: warning,
       },
     ],
-    [announcement, pink, tint, warning],
+    [announcement, pink, tint, warning, router],
   );
 
   return (
@@ -41,6 +47,7 @@ export default function ActionTiles() {
           iconName={action.iconName}
           label={action.label}
           color={action.color}
+          onClick={action.onClick}
         />
       ))}
     </ThemedView>

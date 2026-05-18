@@ -20,6 +20,7 @@ export default function ActionCard({
   const backgroundColor = useThemeColor({}, "surface");
   const icon = useThemeColor({}, "icon");
   const handleClick = useCallback(() => {
+    console.log("okkgkugp");
     onClick?.();
   }, [onClick]);
   return (

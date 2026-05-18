@@ -2721,6 +2721,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-form@npm:^4":
+  version: 4.0.6
+  resolution: "@types/react-form@npm:4.0.6"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 10c0/5c26226f80ad72d8e443a2a974a8ea826dca46b5e77a6b9e515ecc049980e9ff0521123e7f7c9786ab65498ac9657c098304c7d0bdd5c16dde23953de73d1000
+  languageName: node
+  linkType: hard
+
+"@types/react@npm:*":
+  version: 19.2.14
+  resolution: "@types/react@npm:19.2.14"
+  dependencies:
+    csstype: "npm:^3.2.2"
+  checksum: 10c0/7d25bf41b57719452d86d2ac0570b659210402707313a36ee612666bf11275a1c69824f8c3ee1fdca077ccfe15452f6da8f1224529b917050eb2d861e52b59b7
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:~19.1.0":
   version: 19.1.17
   resolution: "@types/react@npm:19.1.17"
@@ -3909,6 +3927,7 @@ __metadata:
     "@react-navigation/elements": "npm:^2.6.3"
     "@react-navigation/native": "npm:^7.1.8"
     "@types/react": "npm:~19.1.0"
+    "@types/react-form": "npm:^4"
     axios: "npm:^1.16.1"
     eslint: "npm:^9.25.0"
     eslint-config-expo: "npm:~10.0.0"
@@ -3928,6 +3947,7 @@ __metadata:
     expo-web-browser: "npm:~15.0.11"
     react: "npm:19.1.0"
     react-dom: "npm:19.1.0"
+    react-form: "npm:^4.0.1"
     react-native: "npm:0.81.5"
     react-native-gesture-handler: "npm:~2.28.0"
     react-native-reanimated: "npm:~4.1.1"
@@ -4157,7 +4177,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"csstype@npm:^3.0.2":
+"csstype@npm:^3.0.2, csstype@npm:^3.2.2":
   version: 3.2.3
   resolution: "csstype@npm:3.2.3"
   checksum: 10c0/cd29c51e70fa822f1cecd8641a1445bed7063697469d35633b516e60fe8c1bde04b08f6c5b6022136bb669b64c63d4173af54864510fbb4ee23281801841a3ce
@@ -8095,6 +8115,16 @@ __metadata:
   version: 3.2.2
   resolution: "react-fast-compare@npm:3.2.2"
   checksum: 10c0/0bbd2f3eb41ab2ff7380daaa55105db698d965c396df73e6874831dbafec8c4b5b08ba36ff09df01526caa3c61595247e3269558c284e37646241cba2b90a367
+  languageName: node
+  linkType: hard
+
+"react-form@npm:^4.0.1":
+  version: 4.0.1
+  resolution: "react-form@npm:4.0.1"
+  peerDependencies:
+    prop-types: ^15.5.4
+    react: ^16.8.3
+  checksum: 10c0/0ee9493110b3bd8f3471396c4a02ffcbbdebd8b5e73b790e7072abb4f35af5852d24c007f0ec8465e17bcd240f55ec2ab97522bfd56144b8bc07c9ad59f39fdd
   languageName: node
   linkType: hard
 

@@ -11,7 +11,7 @@ export const Colors = {
   light: {
     text: "#181818",
     textSecondary: "#4d4d4d",
-    background: "#eeeeee",
+    background: "#f0f0f0",
     surface: "#fdfdfd",
     surfaceAlt: "#cbcbcb",
     card: "#ffffff",
