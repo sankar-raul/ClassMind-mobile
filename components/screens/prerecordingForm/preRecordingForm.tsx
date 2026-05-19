@@ -2,9 +2,17 @@ import Button from "@/components/shared/button";
 import FormInput from "@/components/shared/formInput";
 import ThemedScrollView from "@/components/ThemedScrollView";
 import { IconSymbol } from "@/components/ui/icon-symbol";
+import useNavigate from "@/hooks/navigation/navigate";
+import { useRouter } from "expo-router";
+import { useCallback } from "react";
 import { KeyboardAvoidingView, Platform, StyleSheet, View } from "react-native";
 
 export default function PreRecordingForm() {
+  const { goBack } = useNavigate();
+  const router = useRouter();
+  const handleRecord = useCallback(() => {
+    router.push("/(action)/record");
+  }, [router]);
   return (
     <KeyboardAvoidingView
       behavior={Platform.OS === "ios" ? "padding" : "height"}
@@ -29,10 +37,11 @@ export default function PreRecordingForm() {
             <Button
               type="primary"
               icon={<IconSymbol color="#fff" name="mic" />}
+              onClick={handleRecord}
             >
               Start Recording
             </Button>
-            <Button type="secondery" theme="default">
+            <Button type="secondery" theme="default" onClick={goBack}>
               Cancel
             </Button>
           </View>

@@ -16,7 +16,6 @@ export default function ActionTiles() {
         iconName: "mic",
         color: tint,
         onClick: () => {
-          console.log("ok");
           router.push("/(action)/pre-recording");
         },
       },

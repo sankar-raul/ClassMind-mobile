@@ -4,32 +4,37 @@ import {
   Pressable,
   StyleProp,
   StyleSheet,
-  Text,
+  View,
   ViewStyle,
 } from "react-native";
+import { ThemedText } from "../themed-text";
 
 type ButtonType = "primary" | "secondery";
 type ButtonTheme = "default" | "negative" | "warning" | "info";
-export interface PrimaryButtonProps {
+export interface ActionButtonProps {
   children?: ReactNode;
   icon?: ReactNode;
   type?: ButtonType;
   style?: StyleProp<ViewStyle>;
+  contentStyle?: StyleProp<ViewStyle>;
   theme?: ButtonTheme;
   onClick?: () => void;
 }
-export default function Button({
+export default function ActionButton({
   children,
   icon,
   type = "primary",
   style,
   theme = "default",
+  contentStyle,
   onClick,
-}: PrimaryButtonProps) {
+}: ActionButtonProps) {
   const primaryColor = useThemeColor({}, "tint");
   const negativeColor = useThemeColor({}, "negative");
   const warningColor = useThemeColor({}, "warning");
   const infoColor = useThemeColor({}, "announcement");
+  const textColor = useThemeColor({}, "text");
+  const surfaceColor = useThemeColor({}, "surface");
   const buttonTheme = useMemo<Record<ButtonTheme, string>>(
     () => ({
       default: primaryColor,
@@ -43,43 +48,49 @@ export default function Button({
     onClick?.();
   }, [onClick]);
   return (
-    <Pressable
-      onPress={handleClick}
-      android_ripple={{ foreground: true, borderless: false }}
-      style={[
-        {
-          backgroundColor:
-            type === "primary" ? buttonTheme[theme] : "transparent",
-        },
-        styles["container"],
-        style as ViewStyle,
-      ]}
-    >
-      {icon || ""}
-      <Text
+    <View style={[styles["contentContainer"], contentStyle]}>
+      <Pressable
+        onPress={handleClick}
+        android_ripple={{ foreground: true, borderless: false }}
         style={[
-          { color: type === "secondery" ? buttonTheme[theme] : "#fff" },
-          styles["text"],
+          {
+            backgroundColor:
+              type === "primary" ? buttonTheme[theme] : surfaceColor,
+            ...(type === "secondery"
+              ? { borderWidth: 2, borderColor: "#fff0" }
+              : {}),
+          },
+          styles["container"],
+          style as ViewStyle,
         ]}
       >
+        {icon || ""}
+      </Pressable>
+      <ThemedText type="default" style={[{ color: textColor }, styles["text"]]}>
         {children}
-      </Text>
-    </Pressable>
+      </ThemedText>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
+  contentContainer: {
+    alignItems: "center",
+    gap: 12,
+  },
   container: {
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingBlock: 12,
-    paddingInline: 12,
-    gap: 4,
-    borderRadius: 30,
+    padding: 8,
+    width: 72,
+    aspectRatio: "1/1",
+    // gap: 4,
+    borderRadius: "50%",
   },
   text: {
-    fontWeight: 600,
-    fontSize: 16,
+    // color: "#ffffff",
+    fontWeight: 500,
+    // fontSize: 16,
   },
 });

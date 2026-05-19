@@ -8,6 +8,7 @@ export default function ActionLayout() {
         name="pre-recording"
         options={{ title: "Start Recording" }}
       />
+      <Stack.Screen name="record" options={{ headerShown: false }} />
     </Stack>
   );
 }
